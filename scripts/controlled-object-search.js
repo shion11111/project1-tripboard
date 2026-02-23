@@ -1,11 +1,13 @@
+
+
 const jsObjectData = [
 /* 🌐 */
-    { id: 1, continent: "North America", country: "The United States", city: "New York"},
-    { id: 2, continent: "North America", country: "Canada", city: "Toronto"},
-    { id: 3, continent: "Europe", country: "United Kingdom", city: "London"},
-    { id: 4, continent: "Europe", country: "France", city: "Paris"},
-    { id: 5, continent: "Asia", country: "Japan", city: "Tokyo"},
-    { id: 6, continent: "Asia", country: "China", city: "Beijing"},
+    { id: 1, continent: "North America", country: "The United States", city: "New York", link: "pages/usa.html"},
+    { id: 2, continent: "North America", country: "Canada", city: "Toronto", link: "pages/canada.html"},
+    { id: 3, continent: "Europe", country: "United Kingdom", city: "London", link: "pages/uk.html"},
+    { id: 4, continent: "Europe", country: "France", city: "Paris", link: "pages/france.html"},
+    { id: 5, continent: "Asia", country: "Japan", city: "Tokyo", link: "pages/japan.html"},
+    { id: 6, continent: "Asia", country: "China", city: "Beijing", link: "pages/china.html"},
    
 ]
 
@@ -50,7 +52,7 @@ const searchMessage = document.getElementById("searchMessage");
 
 const SEARCHABLE_FIELDS = ["continent", "country", "city"];
 
-function renderObjectResults(items) {
+function renderObjectResults(items, query) {
   searchResults.innerHTML = "";
   if (items.length === 0) {
     searchResults.innerHTML = "<li>No results found.</li>";
@@ -59,17 +61,26 @@ function renderObjectResults(items) {
   items.forEach(item => {
     const li = document.createElement("li");
     const link = document.createElement("a");
-    link.href = item.link || "#";
-    link.textContent = `${item.continent} | ${item.country} | ${item.city}`;
+
+    // Highlight the matched part (optional)
+    let displayText = `${item.continent} | ${item.country} | ${item.city}`;
+    if (query) {
+      const regex = new RegExp(`(${query})`, "gi");
+      displayText = displayText.replace(regex, "<strong>$1</strong>");
+    }
+    
+    link.href = item.link || "#"; 
+    link.innerHTML = displayText;
     li.appendChild(link);
     searchResults.appendChild(li);
   });
+   searchResults.style.display = "block";
 }
 
 function handleControlledObjectSearch() {
   const query = searchInput.value.trim().toLowerCase();
   if (!query) {
-    renderObjectResults(jsObjectData);
+    searchResults.innerHTML = ""; // hide list if nothing typed
     searchMessage.textContent = "Type to search places (continent/country/city)";
     return;
   }
@@ -78,7 +89,7 @@ function handleControlledObjectSearch() {
       String(item[field]).toLowerCase().includes(query)
     )
   );
-  renderObjectResults(results);
+  renderObjectResults(results, query);
   searchMessage.textContent = results.length ? `Found ${results.length} result(s)` : `No results for: ${query}`;
 }
 
@@ -88,8 +99,12 @@ searchInput.addEventListener("input", handleControlledObjectSearch);
 // Search on button click
 searchButton.addEventListener("click", handleControlledObjectSearch);
 
-// Initial render
-renderObjectResults(jsObjectData);
+searchResults.innerHTML = "";
 searchMessage.textContent = "Type to search places (continent/country/city)";
 
-
+// Hide dropdown if clicking outside
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".search-wrapper")) {
+    searchResults.style.display = "none";
+  }
+});

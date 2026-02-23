@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
-    <link href="styles/home-style.css" rel="stylesheet">
+    <link href="../styles/home-style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
 
             <!-- row 1: logout -->
               <div class="w-100 px-3 py-2 d-flex align-items-center">
-        <button class="navbar-brand fw-bold mb-0" type="button" onclick="window.location.href='index.html'">Home</button>
+        <button class="navbar-brand fw-bold mb-0" type="button" onclick="window.location.href='../index.html'">Home</button>
 
         <button id="btnLogout" class="btn btn-outline-light ms-sm-3 d-none" type="button">logout</button>
 
@@ -25,29 +25,32 @@
 
     <!-- Main content -->
      <div class="main" href="#">
-        <h1>TripBoard 🌍✈️</h1>
+        <h1>🌍 TripBoard ✈️</h1>
         <h2>Welcome to TripBoard!</h2>
 
       </div>
 
     <div class="bg-light border-top py-3">
-      <div class="container">
+      <div class="container d-flex flex-column align-items-center" >
 
-        <form class="d-flex">
+        <div class="search-wrapper">
+          <p id ="searchMessage">Type to search places (continent/country/city)</p>
+
+          <div class="search-container">
           <input id="searchInput" class="form-control me-2" type="search" placeholder="Explore more..." aria-label="Search">
-
-    
-          <button id="searchButton" class="btn btn-outline-success" type="submit">Search</button>
-
-          <p id="searchMessage"></p>
-          <ul id="searchResults"></ul>
-
+           <button id="searchButton" class="btn btn-outline-success mt-2" type="button">Search</button>
+          </div>
           
-          <script src="scripts/controlled-object-search.js"></script>
+          <ul id="searchResults"></ul>
+        </div>
 
-        </form>
+        <p id="searchMessage"></p>
+
+       
       </div>
-     </div>
+    </div>
+      <script src="../scripts/controlled-object-search.js"></script>
+
 
      <div class="container mt-4">
       <h2>Travel Ideas</h2>
