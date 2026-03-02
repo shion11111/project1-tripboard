@@ -1,4 +1,4 @@
-# CIS 376 Spring 2026 Course Page
+# CIS 376 Spring 2026 Project 1 -TripBoard
 
 ## User Story
 Giving inspirations to the users about travel destinations. Displaying pictures and linking them to each distination pages.
