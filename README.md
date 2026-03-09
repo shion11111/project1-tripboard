@@ -1,5 +1,4 @@
 # CIS 376 Spring 2026 Project 1 -TripBoard
----
 Shion's trip memories.
 
 
@@ -44,6 +43,7 @@ Here's how the login flow works.
 
 from '''pages/login.html
 <button id="loginBtn" class="btn btn-primary p-2 fs-4">Login</button>
+'''
 
 from '''scripts/login-script.js
 const login = document.getElementById('loginBtn');
@@ -58,6 +58,7 @@ login.addEventListener('click', function (event) {
   const password = document.getElementById('password').value;
 
   console.log("username + pwd:", username + ", " + password);
+  '''
   
 
 
