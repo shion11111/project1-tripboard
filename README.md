@@ -2,13 +2,14 @@
 Shion's trip memories.
 
 
-### Created by: Shion Kishaba
+### Created by: 
+ Shion Kishaba
 
 ### Resources:
-Bootstrap
-Google Fonts
-Unsplash images
-Inspired by Pinterest
+ Bootstrap,
+ Google Fonts,
+ Unsplash images,
+ Inspired by Pinterest
 
 ## User Story
 As a travel lover
