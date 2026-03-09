@@ -1,14 +1,10 @@
 # CIS 376 Spring 2026 Course Page
-A web app that will inspire users trip destinations
+A web app that will inspire users trip destinations.
 
 ## Authorship:
-Created by:
+Created by: Shion Kishaba
 
-Shion Kishaba
-
-Resources:
-
-Bootstrap, Google Fonts, images, inspired by pinterest
+Resources: Bootstrap, Google Fonts, images, inspired by pinterest
 
 ## User Story
 As a travel lover
