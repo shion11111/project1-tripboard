@@ -28,7 +28,7 @@ https://github.com/username/travel-app
 https://username.github.io/travel-app
 
 ### Verification:
-Tested on Chrome, Safari, mobile, and desktop.
+Tested on Chrome, Safari, desktop. It looks a little bit weired in mobile.
 
 ## Code sample
 Here's how login flow works.
